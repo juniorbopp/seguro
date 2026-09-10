@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    background-color: #f5f7fa;
+    font-family: Arial, sans-serif;
+}
+
+/* MENÚ LATERAL */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background-color: #08244a;
+    color: white;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.menu-title {
+    font-size: 12px;
+    color: #9daec4;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.menu-item {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background-color: #1261b0;
+}
+
+
+/* CONTENIDO */
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+
+/* BARRA SUPERIOR */
+
+.topbar {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+/* BIENVENIDA */
+
+.welcome {
+    margin-bottom: 30px;
+}
+
+.welcome h1 {
+    font-weight: bold;
+}
+
+
+/* TARJETAS */
+
+.dashboard-card {
+    border: none;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.dashboard-card h2 {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.dashboard-card a {
+    text-decoration: none;
+}
+
+
+/* ACCIONES */
+
+.action-card {
+    padding: 25px;
+    border: none;
+    border-radius: 12px;
+    height: 100%;
+}
+
+.action-card h4 {
+    margin-bottom: 15px;
+}
+
+.action-card p {
+    color: #666;
+    min-height: 50px;
+}
+
+
+/* TABLA */
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+}
+
+.card-header h3 {
+    margin: 0;
+}
+
+.table {
+    margin-bottom: 0;
+}
