@@ -1,4 +1,5 @@
 package com.trabajotaller.seguro.entidad;
+
 import java.sql.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -95,5 +96,13 @@ public class poliza {
 
     public void setCondicioneGenerales(String condicioneGenerales) {
         this.condicioneGenerales = condicioneGenerales;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }

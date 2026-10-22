@@ -76,20 +76,19 @@
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Cliente</label>
+    <label class="form-label">Cliente</label>
 
-                        <select class="form-select"
-                                th:field="*{cliente}">
+    <select class="form-select" name="cliente.idCliente" required>
 
-                            <option value="">Seleccione un cliente</option>
+        <option value="">Seleccione un cliente</option>
 
-                            <option th:each="cliente : ${clientes}"
-                                    th:value="${cliente.idCliente}"
-                                    th:text="${cliente.nombre + ' ' + cliente.apellido}">
-                            </option>
+        <option th:each="c : ${clientes}"
+                th:value="${c.idCliente}"
+                th:text="${c.nombre + ' ' + c.apellido}">
+        </option>
 
-                        </select>
-                    </div>
+    </select>
+</div>
 
                     <div class="col-12 mb-3">
                         <label class="form-label">Condiciones generales</label>

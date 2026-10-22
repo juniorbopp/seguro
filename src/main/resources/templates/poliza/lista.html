@@ -63,7 +63,7 @@
 
                             <td th:text="${poliza.estado}"></td>
 
-                            <td th:text="${poliza.cliente.nombre + ' ' + poliza.cliente.apellido}"></td>
+                            <td th:text="${poliza.cliente != null ? poliza.cliente.nombre + ' ' + poliza.cliente.apellido : 'Sin cliente'}"></td>
 
                             <td>
                                 <a href="#" class="btn btn-sm btn-primary">

@@ -22,6 +22,7 @@ public class Cliente {
     @Column(unique = true, nullable = false)
     private String documento;
 
+    
     public int getIdCliente() {
         return idCliente;
     }
