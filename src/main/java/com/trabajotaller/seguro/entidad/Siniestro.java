@@ -17,6 +17,7 @@ public class Siniestro {
     private Date fechaSiniestro;
     private String estadosiniestro;
     private String observacionesSiniestro;
+    private boolean activo = true;
 
     @ManyToOne
     @JoinColumn(name = "idPoliza")
@@ -65,4 +66,26 @@ public class Siniestro {
     public void setObservacionesSiniestro(String observacionesSiniestro) {
         this.observacionesSiniestro = observacionesSiniestro;
     }
+    public poliza getPoliza() {
+    return poliza;
+}
+
+public void setPoliza(poliza poliza) {
+    this.poliza = poliza;
+}
+
+public EstadoSiniestro getEstadoSiniestroEntidad() {
+    return estadoSiniestro;
+}
+
+public void setEstadoSiniestroEntidad(EstadoSiniestro estadoSiniestro) {
+    this.estadoSiniestro = estadoSiniestro;
+}
+public boolean isActivo() {
+    return activo;
+}
+
+public void setActivo(boolean activo) {
+    this.activo = activo;
+}
 }

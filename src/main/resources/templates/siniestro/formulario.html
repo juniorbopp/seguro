@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Siniestro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="mb-4">Registrar Siniestro</h2>
+
+            <form th:action="@{/admin/siniestros/guardar}"
+                  th:object="${siniestro}" method="post">
+                  <input type="hidden" th:field="*{idSiniestro}">
+
+                <div class="mb-3">
+                    <label class="form-label">Descripción del siniestro</label>
+                    <textarea class="form-control"
+                              th:field="*{descripcionSiniestro}"
+                              required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Fecha del siniestro</label>
+                    <input type="date" class="form-control"
+                           th:field="*{fechaSiniestro}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Póliza</label>
+                    <select class="form-select" name="idPoliza" required>
+                        <option value="">Seleccione una póliza</option>
+                        <option th:each="poliza : ${polizas}"
+                                th:value="${poliza.idPoliza}"
+                                th:text="${poliza.numeroPoliza}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Estado del siniestro</label>
+                    <select class="form-select" name="idEstadoSiniestro" required>
+                        <option value="">Seleccione un estado</option>
+                        <option th:each="estado : ${estados}"
+                                th:value="${estado.idEstadoSiniestro}"
+                                th:text="${estado.descripcion}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Observaciones</label>
+                    <textarea class="form-control"
+                              th:field="*{observacionesSiniestro}"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a href="/admin/siniestros" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

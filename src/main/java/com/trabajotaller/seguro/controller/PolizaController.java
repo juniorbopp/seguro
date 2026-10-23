@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
 
 import com.trabajotaller.seguro.entidad.poliza;
+import org.springframework.web.bind.annotation.PathVariable;
 import com.trabajotaller.seguro.repositorios.clienteRepo;
 import com.trabajotaller.seguro.repositorios.polizaRepo;
 
@@ -39,10 +40,31 @@ public class PolizaController {
     }
 
     @PostMapping("/admin/polizas/guardar")
-public String guardarPoliza(@ModelAttribute("Poliza")poliza poliza) {
+    public String guardarPoliza(@ModelAttribute("Poliza") poliza poliza) {
 
-    polizaRepository.save(poliza);
+        polizaRepository.save(poliza);
 
-    return "redirect:/admin/polizas";
-}
+        return "redirect:/admin/polizas";
+    }
+
+    @GetMapping("/admin/polizas/ver/{id}")
+    public String verPoliza(@PathVariable int id, Model model) {
+        poliza poliza = polizaRepository.findById(id).orElse(null);
+        model.addAttribute("poliza", poliza);
+        return "poliza/detalle";
+    }
+
+    @GetMapping("/admin/polizas/editar/{id}")
+    public String editarPoliza(@PathVariable int id, Model model) {
+        poliza poliza = polizaRepository.findById(id).orElse(null);
+        model.addAttribute("poliza", poliza);
+        model.addAttribute("clientes", clienteRepository.findAll());
+        return "poliza/formulario";
+    }
+
+    @GetMapping("/admin/polizas/eliminar/{id}")
+    public String eliminarPoliza(@PathVariable int id) {
+        polizaRepository.deleteById(id);
+        return "redirect:/admin/polizas";
+    }
 }
