@@ -1,6 +1,9 @@
 package com.trabajotaller.seguro.entidad;
+
 import java.sql.Date;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,6 +22,10 @@ public class Usuario {
     private Date fechaIngreso;
     private Date fechaSalida;
     private String telefono;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", unique = true)
+    private Cliente cliente;
 
     public String getNombre() {
         return nombre;
@@ -98,5 +105,13 @@ public class Usuario {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }

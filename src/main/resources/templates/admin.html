@@ -40,14 +40,19 @@
                 Clientes
             </a>
 
-            <a href="#" class="menu-item">
+            <a href="/admin/usuarios" class="menu-item">
                 Usuarios
             </a>
 
-            <a href="#" class="menu-item">
+            <a href="/admin/siniestros" class="menu-item">
                 Siniestros
             </a>
 
+            <form th:action="@{/logout}" method="post" class="mt-3">
+                <button type="submit" class="btn btn-outline-danger">
+                    Cerrar sesión
+                </button>
+            </form>
         </aside>
 
 </body>

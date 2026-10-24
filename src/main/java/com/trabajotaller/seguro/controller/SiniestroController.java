@@ -105,4 +105,27 @@ public class SiniestroController {
 
         return "redirect:/admin/siniestros";
     }
+    @GetMapping("/admin/siniestros/archivados")
+public String listarArchivados(Model model) {
+    model.addAttribute(
+        "siniestros",
+        siniestroRepository.findAll()
+            .stream()
+            .filter(siniestro -> !siniestro.isActivo())
+            .toList()
+    );
+
+    return "siniestro/archivados";
+}
+@GetMapping("/admin/siniestros/reanudar/{id}")
+public String reanudarSiniestro(@PathVariable int id) {
+    Siniestro siniestro = siniestroRepository.findById(id).orElse(null);
+
+    if (siniestro != null) {
+        siniestro.setActivo(true);
+        siniestroRepository.save(siniestro);
+    }
+
+    return "redirect:/admin/siniestros/archivados";
+}
 }
